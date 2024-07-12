@@ -18,40 +18,41 @@ Disini kita akan membuat script automation dengan fungsi LOGIN pada link https:/
       - chrome_options.add_argument("--start-maximized")  
       
     // agar webdriver bisa mengendalikan browser chrome
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
+      - driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
       
       try
     // Buka url yang sudah disediakan
-    driver.get("https://www.saucedemo.com/v1/index.html")
+      - driver.get("https://www.saucedemo.com/v1/index.html")
 
     // Menunggu membuka website sampai memuat dengan sepenuhnya
-    time.sleep(2)
+      - time.sleep(2)
 
     /// Mencari element dengan id "user-name" dan "password" kemudian disimpan pada "username" dan "password"
-    username = driver.find_element(By.ID, "user-name")
-    password = driver.find_element(By.ID, "password")
+      - username = driver.find_element(By.ID, "user-name")
+      - password = driver.find_element(By.ID, "password")
 
     // Lalu memasukkan username="standard_user" dan password="secret_sauce"
     // username bisa menggunakan "problem_user", "performance_glitch_user","performance_glitch_user"
-   username.send_keys("standard_user")
-   password.send_keys("secret_sauce")
+      - username.send_keys("standard_user")
+      - password.send_keys("secret_sauce")
 
     // cari button dan klik button
-    login_button = driver.find_element(By.ID, "login-button")
-   login_button.click()
+      - login_button = driver.find_element(By.ID, "login-button")
+      - login_button.click()
 
     // Menunggu 5 detik sampai web berhasil memuat secara sepenuhnya/sukses
-   time.sleep(5)
+      - time.sleep(5)
 
     // Mengecek apakah pada url berhasil mengarah ke inventory.html, jika ya maka muncul "Login succesful!" jika tidak "login failed"
-   if "inventory.html" in driver.current_url:
-        print("Login successful!")
-    else:
-        print("Login failed.")
+      - if "inventory.html" in driver.current_url:
+      - print("Login successful!")
+      - else:
+      - print("Login failed.")
 
-   finally:
+      
+      - finally:
     // Menutup browser
-    driver.quit()
+      - driver.quit()
 
 
 
