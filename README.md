@@ -33,18 +33,18 @@ Disini kita akan membuat script automation dengan fungsi LOGIN pada link https:/
 
     // Lalu memasukkan username="standard_user" dan password="secret_sauce"
     // username bisa menggunakan "problem_user", "performance_glitch_user","performance_glitch_user"
-    username.send_keys("standard_user")
-    password.send_keys("secret_sauce")
+   username.send_keys("standard_user")
+   password.send_keys("secret_sauce")
 
     // cari button dan klik button
     login_button = driver.find_element(By.ID, "login-button")
-    login_button.click()
+   login_button.click()
 
-    // Menunggu 5 detik sampai web berhasil memuat secara sepenuhnya/sukses.
-    time.sleep(5)
+    // Menunggu 5 detik sampai web berhasil memuat secara sepenuhnya/sukses
+   time.sleep(5)
 
     // Mengecek apakah pada url berhasil mengarah ke inventory.html, jika ya maka muncul "Login succesful!" jika tidak "login failed"
-    if "inventory.html" in driver.current_url:
+   if "inventory.html" in driver.current_url:
         print("Login successful!")
     else:
         print("Login failed.")
@@ -55,4 +55,4 @@ Disini kita akan membuat script automation dengan fungsi LOGIN pada link https:/
 
 
 
-6.  Jalankan script file dengan cara "python saucedemo_automation.py"
+7.  Jalankan script file dengan cara "python saucedemo_automation.py"
