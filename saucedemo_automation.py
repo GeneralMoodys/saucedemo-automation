@@ -5,41 +5,41 @@ from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import time
 
-# Set up Chrome options
+# Atur opsi chrome
 chrome_options = Options()
 chrome_options.add_argument("--start-maximized")  # Start the browser maximized
 
-# Initialize WebDriver
+# menginisialisasi webdriver
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
 
 try:
-    # Open the URL
+    # Membuka URL
     driver.get("https://www.saucedemo.com/v1/index.html")
 
-    # Wait for the page to load
-    time.sleep(2)
+    # Ketika membuka url menunggu selama 5 detik sampe memuat web secara sempurna
+    time.sleep(5)
 
-    # Find username and password fields
-    username_field = driver.find_element(By.ID, "user-name")
-    password_field = driver.find_element(By.ID, "password")
+    # mencari id user-name dan id password
+    username = driver.find_element(By.ID, "user-name")
+    password = driver.find_element(By.ID, "password")
 
-    # Enter username and password
-    username_field.send_keys("standard_user")
-    password_field.send_keys("secret_sauce")
+    # Memasukkan id username= "standard_user" dan password = "secret_sauce"
+    username.send_keys("standard_user")
+    password.send_keys("secret_sauce")
 
-    # Find and click the login button
+    # Cari id login-button dan klik tombol login-button
     login_button = driver.find_element(By.ID, "login-button")
     login_button.click()
 
-    # Wait for login to complete
-    time.sleep(3)
+    # Menunggu selama 5 detik saat web memuat hingga selesai
+    time.sleep(5)
 
-    # Perform actions after login, for example, checking if the login was successful
+    # Menampilkan ketika login berhasil maka muncul pesan "Login successful!" jika gagal maka "Login failed"
     if "inventory.html" in driver.current_url:
         print("Login successful!")
     else:
         print("Login failed.")
 
 finally:
-    # Close the browser
+    # Setelah automation login dilakukan maka browser akan tertutup
     driver.quit()
